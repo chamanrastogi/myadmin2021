@@ -1,0 +1,8 @@
+{
+    "require": {
+        "illuminate/database": "^8.27",
+        "illuminate/events": "^8.27",
+        "illuminate/hashing": "^8.27"
+			
+    }
+}
