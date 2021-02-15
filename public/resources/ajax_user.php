@@ -52,14 +52,14 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 
 $st='<a href="javascript:confirmDelete(';
 $end=')" class="btn btn-danger btn-circle btn-xs waves-effect waves-light"><i class="ico fa fa-trash"></i></a>';
-$ro=User::find_by_id($row['id']);	
-$img=SITE_ROOT.DS.BASE_FOLDER.UPLOAD_PATH.$url.DS.$ro->image;	
+$ro=User::find($row['id']);	
+ $img=SITE_ROOT.DS.BASE_FOLDER.UPLOAD_PATH.$ro->folder.DS.$ro->image;
 if(file_exists($img))
 {
 	
 	if($ro->image!='')
 	{
-	 $img=BASE_PATH.DS.BASE_FOLDER.UPLOAD_PATH.$url.DS.$ro->image;
+	 $img=BASE_PATH.DS.BASE_FOLDER.UPLOAD_PATH.$ro->folder.DS.$ro->image;
 	}else
 	{
 		$img=BASE_PATH.DS.BASE_FOLDER.UPLOAD_PATH.'sample.jpg';
@@ -77,12 +77,14 @@ $del=$st."'$code'".$end;
 $del='';
 }
 $nestedData[] = $ro->id;
+$nestedData[] = ucfirst($ro->profession);
 $nestedData[] = ucfirst($ro->full_name);
 $nestedData[] = '<a  class="item-gallery lightview" data-lightview-group="group" href="'.$img.'">
                     <img src="'.$img.'"  class="img-polaroid" width="60" height="60" border="0"></a>';
 $nestedData[] = '<a href="'.TP_BACK_SIDE.$url.'/status/'.$ro->id.'"  style="color:blue">'.$ro->status.'</a>';
+$nestedData[] = '<a href="'.TP_BACK_SIDE.$url.'/status/'.$ro->id.'"  style="color:blue">'.datetime_to_text($ro->created).'</a>';
 $nestedData[] = '<a href="'.TP_BACK_SIDE.'user/edit/'.$ro->id.'" class="btn btn-info btn-circle btn-xs waves-effect waves-light">
-				       <i class="ico fa fa-pencil "></i></a>'.$del;
+				       <i class="ico fa fa-pencil"></i></a>'.$del;
 					  
 $nestedData[] = '';
 

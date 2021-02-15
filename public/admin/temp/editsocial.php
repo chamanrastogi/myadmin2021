@@ -2,7 +2,7 @@
 require_once('../../includes/initialize.php');
 if (!$session->is_logged_in()) { redirect_to("login.php"); }?>
 <?php include_layout_template('header.php');
-$template=Template::find_by_id(1);
+$template=Template::find(1);
  ?>
  <title>Edit Social</title>
  <style>

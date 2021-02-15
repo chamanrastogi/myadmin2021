@@ -1,7 +1,7 @@
 <?php
 require_once("../../includes/initialize.php");
 use Illuminate\Hashing\BcryptHasher;
-$Template = Template::find_by_id(1);
+$Template = Template::find(1);
 if($session->is_logged_in()) {
   redirect_to(TP_BACK."admin");
 }
@@ -13,7 +13,7 @@ $data =new User;
 if($cos==1)
 {
 $cos=User::find_by_field_value("email",$email);
-$temp=Template::find_by_id(1);
+$temp=Template::find(1);
 $user=User::find_by_id(1);
 $xp=new BcryptHasher();
 $password=random();

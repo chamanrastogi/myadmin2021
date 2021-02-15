@@ -1,5 +1,5 @@
 <?php
-
+$user= 1;
 ?>
 <div class="navigation">
 			<h5 class="title">Navigation</h5>

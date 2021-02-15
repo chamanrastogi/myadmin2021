@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL ^ E_DEPRECATED);
+ob_start();
 // Database Constants
 defined('DBDRIVER') ? null : define("DBDRIVER", "mysql");
 defined('DB_SERVER') ? null : define("DB_SERVER", "localhost");

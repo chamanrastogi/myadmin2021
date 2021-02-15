@@ -4,7 +4,7 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
 ?>
 
 <?php include_layout_template('header.php');
-$temp=Template::find_by_id(1);
+$temp=Template::find(1);
  ?>
  
 <title>Edit Setting</title>
@@ -213,7 +213,7 @@ echo " <div class='alert alert-block'>
                     </div>
                      <form enctype="multipart/form-data" id="save_model" method="post" name="save_model" action="#" onSubmit="return validateForm()">
                      	<?php
-			 $rw = Template::find_by_id(1);
+			 $rw = Template::find(1);
 		  $rws = Background::find_by_id($rw->pattern);
 		   $rwth = Theme::find_by_id($rw->theme);
 		                  ?>

@@ -15,7 +15,7 @@ if($session->is_logged_in())
 
 include_layout_template('header.php');
 
-$temp=Template::find_by_id(1);
+$temp=Template::find(1);
 
  ?>
 <?php 
